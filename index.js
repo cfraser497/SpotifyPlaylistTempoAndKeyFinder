@@ -19,7 +19,8 @@ if (!axios.defaults.headers.common['Authorization']) {
     console.log("auth token set");
 }
 
-const songIds = await getPlaylistItemsIds(process.env.PLAYLIST_ID);
+//get tempo and key information for each song on the playlist
+const playlistInformation = await getPlaylistItemsIds(process.env.PLAYLIST_ID);
 
 const server = http.createServer(app);
 
