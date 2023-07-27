@@ -1,5 +1,3 @@
-
-
 export function convertListToCommaSeperated (list) {
     let s = "";
 
@@ -14,3 +12,9 @@ export function convertListToCommaSeperated (list) {
 
     return s;
 }
+
+export function getPlaylistId (playlistLink) {
+
+}
+
+// https://open.spotify.com/playlist/2tLLUTRINF4zBnkDBXuisf?si=bdd0a07fb3e041c0&pt=5d5db5eb4d132479a102d38194464af0

@@ -4,8 +4,8 @@ import http from 'http';
 import 'dotenv/config';
 import axios from 'axios';
 
-import setAuthToken from './lib/setAuthToken.js';
-import getPlaylistItemsIds from './lib/getPlaylistItemsIds.js';
+import setAuthToken from './backend/setAuthToken.js';
+import getPlaylistItemsIds from './backend/getPlaylistItemsIds.js';
 
 const app = express();
 
