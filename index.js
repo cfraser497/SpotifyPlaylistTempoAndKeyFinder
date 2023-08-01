@@ -3,6 +3,8 @@ import cors from 'cors';
 import http from 'http';
 import 'dotenv/config';
 import axios from 'axios';
+import pkg from 'node-schedule';
+const schedule = pkg;
 
 import setAuthToken from './lib/setAuthToken.js';
 import getPlaylistItemsIds from './lib/getPlaylistItemsIds.js';
@@ -15,8 +17,6 @@ app.use(express.urlencoded({extended: true}));
 
 //get property id using tenant id
 app.post('/', async (req, res) => {
-    
-    console.log(req.body.playlistId);
 
     //get and set auth token for session
     if (!axios.defaults.headers.common['Authorization']) {
@@ -33,5 +33,12 @@ app.post('/', async (req, res) => {
 })
 
 const server = http.createServer(app);
+
+const rule = new schedule.RecurrenceRule();
+rule.minute = 49;
+
+schedule.scheduleJob(rule, async function () {
+    await setAuthToken();
+});
 
 server.listen(process.env.PORT || 3000, () => console.log('App available on http://localhost:3000'))
