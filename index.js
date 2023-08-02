@@ -42,4 +42,4 @@ schedule.scheduleJob(rule, async function () {
     await setAuthToken();
 });
 
-server.listen(process.env.PORT || 3000, () => console.log('App available on http://localhost:3000'))
+server.listen(process.env.PORT || 8080, () => console.log('App available on http://localhost:8080'))
