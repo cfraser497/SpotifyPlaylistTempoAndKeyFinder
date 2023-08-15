@@ -25,12 +25,16 @@ app.post('/', async (req, res) => {
     }
 
     //get tempo and key information for each song on the playlist
-    const playlistInformation = await getPlaylistItemsIds(req.body.playlistId);
+    try {
+        const playlistInformation = await getPlaylistItemsIds(req.body.playlistId);
 
-    // convert to an array
-    const array = Array.from(playlistInformation.values())
+        // convert to an array
+        const array = Array.from(playlistInformation.values())
 
-    res.send({"tracks": array});
+        res.send({"tracks": array});
+    } catch(error) {
+        res.status(404).send(error);
+    }
 })
 
 const server = http.createServer(app);
